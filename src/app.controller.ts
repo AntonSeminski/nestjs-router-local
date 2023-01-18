@@ -15,6 +15,7 @@ export class AppController {
     console.log('originUrl: ', originUrl)
     console.log('microName: ', microName)
     console.log(`go to url: http://${microName}${originUrl}`)
+    console.log(process.env.DOMAIN)
 
     // microName = '127.0.0.1:3000' // mock
 
