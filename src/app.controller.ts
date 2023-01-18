@@ -8,7 +8,6 @@ export class AppController {
 
   @Get('/:microName/*')
   async getHello(@Req() req, @Param('microName') microName: string): Promise<any> {
-    // http://my/authName/originUrl
     const host = req.get('Host');
     const originUrl = req.originalUrl.substring(microName.length + 1);
 
@@ -20,7 +19,7 @@ export class AppController {
     // microName = '127.0.0.1:3000' // mock
 
     try {
-      return  (await firstValueFrom(this.httpService.get(`http://${microName}${originUrl}`, {}))).data;
+      return  (await firstValueFrom(this.httpService.get(`http://${microName}${originUrl}`, {})))?.data;
     } catch (e) {
       console.log(`e: ${e}`)
       return 'error'
