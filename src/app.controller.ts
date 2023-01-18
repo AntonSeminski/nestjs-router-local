@@ -18,7 +18,6 @@ export class AppController {
     console.log(`go to url: http://${microName}${originUrl}`)
 
     // microName = '127.0.0.1:3000' // mock
-    console.log('microName: ', microName)
 
     try {
       return  (await firstValueFrom(this.httpService.get(`http://${microName}${originUrl}`, {}))).data;
